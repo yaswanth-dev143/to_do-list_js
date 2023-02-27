@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="grid place-items-center h-[200px] w-full">
+      <div class="bg-cyan-300 h-[160px] rounded-xl w-[80%] mt-[40px]">
+        <h1 class="text-2xl font-bold italic ml-[2%] mt-3">ToDo List</h1>
+        <form class="mt-4">
+          <input
+            class="h-[35px] rounded w-[95%] ml-[2%] active:border-indigo-500 active:border-4 hover:border-4 hover:border-indigo-500"
+            type="text"
+            placeholder="   Enter your task"
+          /><br />
+          <input
+            class="bg-blue-500 w-[140px] h-[40px] rounded-xl mt-4 ml-[2%] text-white"
+            type="submit"
+            value="Add to list"
+          />
+        </form>
+      </div>
+      <!-- ------- -->
+      <div class="w-[80%]">
+        <div
+          class="bg-cyan-500 mt-[20px] h-[40px] rounded-xl flex justify-between content-center"
+        >
+          <p class="mt-2 ml-3 w-[60%] overflow-hidden">hello world</p>
+          <button class="mr-[12px] text-white">clear</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
