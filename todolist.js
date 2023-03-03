@@ -2,6 +2,7 @@ let submit = document.querySelector("#submit_form");
 submit.addEventListener("submit", () => {
   add();
   display();
+  window.reload();
 });
 
 let add = () => {
@@ -29,8 +30,8 @@ let display = () => {
       eachtask += `<li
       class="bg-cyan-500 mt-[20px] h-[40px] rounded-xl flex justify-between content-center"
     >
-      <p class="mt-2 ml-3 w-[30%] overflow-hidden">${task}</p>
-      <button class="mr-[12px] text-white butt" id="close">clear</button>
+      <p id="text" class="mt-2 ml-3 w-[30%] overflow-hidden">${task}</p>
+      <button id="dlt" class="mr-[12px] text-white butt" id="close">clear</button>
     </li>`;
     }
     taskCont.innerHTML = eachtask;
@@ -39,9 +40,22 @@ let display = () => {
 display();
 
 //remove task
-let taskCont = document.querySelector("#task_cont");
+let taskCont = document.querySelector("#dlt");
 taskCont.addEventListener("click", (event) => {
   let targetElement = event.target;
   if (targetElement.classList.contains("butt")) {
+    let actEl = taskCont.parentElement;
+    console.log(actEl);
+    let intext = document.querySelector("#text");
+    //get tasks from local storage
+    let taskList = localStorage.getItem("tasks")
+      ? JSON.parse(localStorage.getItem("tasks"))
+      : [];
+
+    taskList.filter((task) => {
+      return task.trim() !== intext;
+    });
+    localStorage.setItem("tasks", JSON.stringify(taskList));
+    display();
   }
 });
